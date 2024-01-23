@@ -1,19 +1,12 @@
-# DiceRoller
-> 버튼을 누르면 주사위 면 중 하나를 보여주는 상호작용 주사위 굴리기 애플리케이션
+## Remember
 
-### Modifier
-1. fillMaxSize(): 이 메서드는 구성요소가 사용 가능한 공간을 채우도록 지정합니다
-2. wrapContentSize(): 사용 가능한 공간이 최소한 내부에 있는 구성요소만큼 커야 한다고 지정합니다
+컴포저블은 기본적으로 상태가 없는 **Stateless**다. 즉, 시스템에서 언제든지 다시 구성하고 값이 재설정된다. 허나 특정 값이 바뀌지 않고 남아있어야 하는 상황이 생기기 마련이다.  
 
-- fillMaxSize()가 선언됐을 때, wrapContentSize()를 체인닝하여 내부 구성요소들을 정렬할 수 있습니다.
+컴포즈에선 이러한 상황을 간단하게 방지할 수 있는 기능을 제공한다. 바로 `remember`다.
 
-### Button
-- Button의 내부에 Text나 Image와 같은 요소들을 집어넣을 수 있습니다.
-- Button은 onClick이란 메서드를 포함해야 합니다.
+- `remember`를 사용하려면 함수를 전달해야 한다.
+  `remember`는 보통 `mutableStateOf()` 함수와 많이 쓰인다. `mutableStateOf()` 함수는 `observable`을 반환한다.
 
-### Remember
-- 컴포저블은 기본적으로 스테이트리스(Stateless)입니다. 즉, 값을 보유하지 않고 시스템에서 언제든지 다시 구성할 수 있어 값이 재설정됩니다.
-- 컴포즈를 사용하여 컴포저블에 스테이트를 부여할 수 있습니다. 구성 가능한 함수는 remember 컴포저블을 사용하여 메모리에 객체를 저장할 수 있습니다.
-    <pre><code>
-      var result by remember { mutableStateOf(1) }
-    </code></pre>
+```kotlin
+var result by remember { mutableStateOf( /*any value*/ ) }
+```
