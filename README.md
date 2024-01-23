@@ -10,3 +10,5 @@
 ```kotlin
 var result by remember { mutableStateOf( /*any value*/ ) }
 ```
+
+> 상태에 관한 더 자세한 사항은 [이 문서](https://github.com/boiledCompose/3_Tip-Calculator)에서 볼 수 있다.
